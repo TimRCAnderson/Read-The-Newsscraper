@@ -29,8 +29,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect("mongodb://heroku_qz40nghd:9vqoe30v0nq5cngf3gh2bu5nj@ds139262.mlab.com:39262/heroku_qz40nghd")
 var db = mongoose.connection;
 
+db.on("error", function(error) {
+  console.log("Mongoose Error: ", error);
+});
+
+// Once logged in to the db through mongoose, log a success message
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
+
 app.use('/', index);
 app.use('/scrape', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
