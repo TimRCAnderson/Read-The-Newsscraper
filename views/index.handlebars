@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+{{> navbar}}
+
+<div class="container">
+  <div class="halfwide" id="article-holder">
+    {{#each article}}
+    <div class="article-single">
+      <a href="{{link}}"><h2>{{title}}</h2></a>
+    </div>
+    {{/each}}
+  </div>
+  <div class="halfwide" id="comments-holder">
+    {{> comments}}
+  </div>
+</div>
