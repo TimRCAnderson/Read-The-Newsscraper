@@ -2,12 +2,11 @@ function navMe()
 {
   if(this.id == "scrape")
   {
-
+    
   }
   else
   {
     windowState.nav = this.id;
-    
   }
 }
 

@@ -10,7 +10,7 @@ var mongoose = require("mongoose");
 mongoose.Promise = Promise;
 
 var index = require('./routes/index');
-var users = require('./routes/api');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -39,7 +39,7 @@ db.once("open", function() {
 });
 
 app.use('/', index);
-app.use('/scrape', users);
+app.use('/api', api);
 
 
 // catch 404 and forward to error handler
